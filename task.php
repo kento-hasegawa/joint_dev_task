@@ -1,10 +1,17 @@
 # 課題の回答は このファイル をご利用下さい。
 # 回答の出力を確認される際は，「php task.php」をターミナルから実行して下さい。
 
+<?php
+
 print("#####q1#####".PHP_EOL);
 $names = ["田中", "佐藤", "佐々木", "高橋"];
 
-  # 以下に回答を記載
+# 以下に回答を記載
+//array_pushにて（変数, 値）にて配列に値を追加する。
+array_push($names, "斎藤");
+//$namesを出力
+print_r($names);
+
 
 echo PHP_EOL;
 
@@ -13,6 +20,9 @@ $array1 = ["dog", "cat", "fish"];
 $array2 = ["bird", "bat", "tiger"];
 
   # 以下に回答を記載
+  //新しい変数＝array_merge(もとの変数１，変数２)とする
+  $array = array_merge($array1, $array2);
+  print_r($array);
 
 echo PHP_EOL;
 
@@ -20,6 +30,21 @@ print("#####q3#####".PHP_EOL);
 $numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9];
 
   # 以下に回答を記載
+  //array_count_valuesで重複している値をカウント
+  $numbers1 = array_count_values($numbers);
+  // 連想配列のキーと値を出力
+  //print_r($numbers1);
+  //foreachで連想配列を出力してそれぞれの個数を出力
+foreach($numbers1 as $number => $count) {
+if ($number == '3' ){
+print_r($number."の個数".$count."個");
+}
+}
+
+/* if ($number == ['3']){
+    echo $count."回";
+  }
+ */
 
 echo PHP_EOL;
 
@@ -27,6 +52,12 @@ print("#####q4#####".PHP_EOL);
 $sports = ["サッカー", "フットサル", null, "野球", "バスケ", null, "バレー"];
 
   # 以下に回答を記載
+  //array_uniqueで重複の値を削除
+$sport1 = array_unique($sports);
+//foreachで配列を出力
+foreach($sport1 as $sport) {
+  echo $sport . PHP_EOL;
+}
 
 echo PHP_EOL;
 
@@ -35,20 +66,67 @@ $array1 = [];
 $array2 = [1, 5, 8, 10];
 
   # 以下に回答を記載
+  //emptyで値が空かどうか確認する
+  if (empty($array1) ){
+    echo 'true';
+  } elseif ($array1 > 0){
+    echo 'false';
+  }
+
+  echo PHP_EOL;
+
+  //emptyで値が空かどうか確認する
+if (empty($array2) ){
+  echo 'true';
+} elseif ($array2 > 0){
+  echo 'false';
+}
+
 
 echo PHP_EOL;
 
 print("#####q6#####".PHP_EOL);
 $numbers1 = [1, 2, 3, 4, 5];
 
-  # 以下に回答を記載
+# 以下に回答を記載
+//$number2の空配列をつくる。
+$number2 = [];
+//foreachで$number1の値を繰り返し出力する
+foreach ($numbers1 as $number){
+  //$number3へ$numberを１０倍したものを格納する
+  $numbers3 = $number *10;
+  //array_pushで$number2の配列に$number3の値を加える
+  array_push($number2,$numbers3);
+}
+//number2を出力
+print_r($number2);
 
-echo PHP_EOL;
+//値から配列とを作成
+
+/* function multiple_number($numbers1) {
+  return $numbers1*10;
+}
+
+$numbers1 = [1, 2, 3, 4, 5];
+
+$multiple_numbers = array_map('multiple_number',$numbers1);
+var_dump($multiple_numbers); */
+//echo $multiple_numbers;
+
+  echo PHP_EOL;
 
 print("#####q7#####".PHP_EOL);
 $array = ["1", "2", "3", "4", "5"];
 
   # 以下に回答を記載
+  //文字列用の配列を作成
+  $array2 = [];
+foreach ($array as $arrays) {
+  $num = (int)$array;
+  array_push($array2,$num);
+}
+
+print_r($array2);
 
 echo PHP_EOL;
 
@@ -56,7 +134,15 @@ print("#####q8#####".PHP_EOL);
 $programming_languages = ["php","ruby","python","javascript"];
 
   # 以下に回答を記載
+$upper_case_programming_languages = [];
 
+  foreach ($programming_languages as $programming_language){
+    echo strtoupper($programming_language);
+  }
+
+  echo PHP_EOL;
+
+//$upper_case_programming_languages = mb_strtoupper($programming_languages);
   # 以下は変更しないで下さい
 print_r($programming_languages);
 echo PHP_EOL;
@@ -182,10 +268,8 @@ class Human
 }
 
 class Zoo
-{
-    
-  # コードを追加
-    
+{  # コードを追加
+
 }
 
 $zoo = new Zoo("旭山動物園",[ "infant" => 0, "children" => 400, "adult" => 800, "senior" => 500]);
