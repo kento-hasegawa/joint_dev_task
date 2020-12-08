@@ -36,8 +36,8 @@ $numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9];
   //print_r($numbers1);
   //foreachで連想配列を出力してそれぞれの個数を出力
 foreach($numbers1 as $number => $count) {
-if ($number == '3' ){
-print_r($number."の個数".$count."個");
+    if ($number == '3' ){
+    print_r($number."の個数".$count."個");
 }
 }
 
@@ -93,10 +93,10 @@ $numbers1 = [1, 2, 3, 4, 5];
 $number2 = [];
 //foreachで$number1の値を繰り返し出力する
 foreach ($numbers1 as $number){
-  //$number3へ$numberを１０倍したものを格納する
-  $numbers3 = $number *10;
-  //array_pushで$number2の配列に$number3の値を加える
-  array_push($number2,$numbers3);
+  //$numberを１０倍する
+  $number *= 10;
+  //array_pushで$number2の配列に$numberの値を加える
+  array_push($number2,$number);
 }
 //number2を出力
 print_r($number2);
@@ -117,16 +117,16 @@ var_dump($multiple_numbers); */
 
 print("#####q7#####".PHP_EOL);
 $array = ["1", "2", "3", "4", "5"];
-
+$array  = array_map('intval',($array));
   # 以下に回答を記載
   //文字列用の配列を作成
-  $array2 = [];
-foreach ($array as $arrays) {
-  $num = (int)$array;
-  array_push($array2,$num);
-}
+  //$array2 = [];
+//foreach ($array as $arrays) {
+  //$num = intval($array);
+//  array_push($array2,$num);
+//}
 
-print_r($array2);
+print_r($array);
 
 echo PHP_EOL;
 
@@ -136,9 +136,9 @@ $programming_languages = ["php","ruby","python","javascript"];
   # 以下に回答を記載
 $upper_case_programming_languages = [];
 
-  foreach ($programming_languages as $programming_language){
-    echo strtoupper($programming_language);
-  }
+  //foreach ($programming_languages as $programming_language){
+    //echo strtoupper($programming_language);
+  //}
 
   echo PHP_EOL;
 
@@ -154,6 +154,14 @@ print("#####q9#####".PHP_EOL);
 $names = ["田中", "佐藤", "佐々木", "高橋"];
 
   # 以下に回答を記載
+  //$name1の配列を作成
+  $name1 = [];
+  //foreachで回す
+  foreach ($names as $name) {
+
+  }
+
+  print_r($name1);
 
 echo PHP_EOL;
 
