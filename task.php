@@ -21,8 +21,8 @@ $array2 = ["bird", "bat", "tiger"];
 
   # 以下に回答を記載
   //新しい変数＝array_merge(もとの変数１，変数２)とする
-  $array = array_merge($array1, $array2);
-  print_r($array);
+$array = array_merge($array1, $array2);
+print_r($array);
 
 echo PHP_EOL;
 
@@ -31,13 +31,14 @@ $numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9];
 
   # 以下に回答を記載
   //array_count_valuesで重複している値をカウント
-  $numbers1 = array_count_values($numbers);
+$numbers1 = array_count_values($numbers);
   // 連想配列のキーと値を出力
   //print_r($numbers1);
   //foreachで連想配列を出力してそれぞれの個数を出力
 foreach($numbers1 as $number => $count) {
     if ($number == '3' ){
     print_r($number."の個数".$count."個");
+    echo PHP_EOL;
 }
 }
 
@@ -67,23 +68,29 @@ $array2 = [1, 5, 8, 10];
 
   # 以下に回答を記載
   //emptyで値が空かどうか確認する
-  if (empty($array1) ){
-    echo 'true';
-  } elseif ($array1 > 0){
-    echo 'false';
-  }
-
+if (empty($array1) ){
+  echo 'true';
   echo PHP_EOL;
+} elseif ($array1 > 0){
+  echo 'false';
+  echo PHP_EOL;
+}
+
+echo PHP_EOL;
 
   //emptyで値が空かどうか確認する
 if (empty($array2) ){
   echo 'true';
+  echo PHP_EOL;
 } elseif ($array2 > 0){
   echo 'false';
+  echo PHP_EOL;
 }
 
 
 echo PHP_EOL;
+
+#12/9回答分ーーーーーーーーーーーーーーーーーーーーーーーーー
 
 print("#####q6#####".PHP_EOL);
 $numbers1 = [1, 2, 3, 4, 5];
@@ -95,25 +102,13 @@ $number2 = [];
 foreach ($numbers1 as $number){
   //$numberを１０倍する
   $number *= 10;
-  //array_pushで$number2の配列に$numberの値を加える
+  //array_pushで$number2の配列に$number*=10の値を加える
   array_push($number2,$number);
 }
 //number2を出力
 print_r($number2);
 
-//値から配列とを作成
-
-/* function multiple_number($numbers1) {
-  return $numbers1*10;
-}
-
-$numbers1 = [1, 2, 3, 4, 5];
-
-$multiple_numbers = array_map('multiple_number',$numbers1);
-var_dump($multiple_numbers); */
-//echo $multiple_numbers;
-
-  echo PHP_EOL;
+echo PHP_EOL;
 
 print("#####q7#####".PHP_EOL);
 $array = ["1", "2", "3", "4", "5"];
@@ -132,10 +127,10 @@ echo PHP_EOL;
 
 print("#####q8#####".PHP_EOL);
 $programming_languages = ["php","ruby","python","javascript"];
-
-  # 以下に回答を記載
-$upper_case_programming_languages = [];
-
+# 以下に回答を記載
+$programming_languages = array_map('ucfirst',$programming_languages);
+$upper_case_programming_languages = array_map('strtoupper',$programming_languages);
+//$upper_case_programming_languages = [];
   //foreach ($programming_languages as $programming_language){
     //echo strtoupper($programming_language);
   //}
@@ -155,13 +150,13 @@ $names = ["田中", "佐藤", "佐々木", "高橋"];
 
   # 以下に回答を記載
   //$name1の配列を作成
-  $name1 = [];
+$name1 = [];
   //foreachで回す
-  foreach ($names as $name) {
+foreach ($names as $name) {
+  array_push($name1,'会員NO.'.$count++." ".$name);
+}
 
-  }
-
-  print_r($name1);
+print_r($name1);
 
 echo PHP_EOL;
 
@@ -169,8 +164,18 @@ print("#####q10#####".PHP_EOL);
 $foods = ["いか","たこ","うに","しゃけ","うにぎり","うに軍艦","うに丼"];
 
   # 以下に回答を記載
+foreach ($foods as $key => $food){
+  if (preg_match("/うに/",$food)){
+    echo $food." ".'好物です';
+    echo PHP_EOL;
+  } else {
+    echo $food." ".'まぁまぁ好きです';
+    echo PHP_EOL;
+  }
+}
 
 echo PHP_EOL;
+#ここまで12/9回答分ーーーーーーーーーーーーーーーーーーーーーーーーー
 
 print("#####q11#####".PHP_EOL);
 $sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]];
