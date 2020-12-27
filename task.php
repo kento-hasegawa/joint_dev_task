@@ -251,6 +251,7 @@ echo PHP_EOL;
 print("#####q17#####".PHP_EOL);
 class User
 {
+
   public $name;
   public $age;
   public $sex;
@@ -266,6 +267,7 @@ class User
       echo "年齢:".$this->age.PHP_EOL;
       echo "性別:".$this->sex.PHP_EOL;
   }
+
 }
 
 $user1 = new User("神里",32,"男");
@@ -281,6 +283,7 @@ print("#####q18#####".PHP_EOL);
 
 class Man
 {
+
   public $name;
   public $age;
 
@@ -296,6 +299,7 @@ class Man
       echo "はいさいまいど〜,".$this->name."です!!!".PHP_EOL;
     }
   }
+
 }
 
 $man1 = new Man("あじー",32);
@@ -314,6 +318,7 @@ class Item{
   function __construct($book_name){
       $this->name = $book_name;
   }
+
 }
   # 以下は変更しないで下さい
 
@@ -333,6 +338,7 @@ class Human
       $this->name = $human_name;
       $this->age = $human_age;
   }
+
 }
 
 class Zoo
@@ -358,6 +364,7 @@ class Zoo
       echo $human->name."さんの入場料は ".$this->entry_fee["senior"]." 円です。".PHP_EOL;
     }
   }
+  
 }
 
 $zoo = new Zoo("旭山動物園",[ "infant" => 0, "children" => 400, "adult" => 800, "senior" => 500]);
