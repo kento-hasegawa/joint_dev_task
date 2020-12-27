@@ -290,11 +290,11 @@ class Man
   }
 
   public function introduce(){
-  if ($this->age > 31){
+    if ($this->age > 31){
       echo "こんにちは,".$this->name."と申します。宜しくお願いいたします。".PHP_EOL;
-  } else {
+    } else {
       echo "はいさいまいど〜,".$this->name."です!!!".PHP_EOL;
-  }
+    }
   }
 }
 
